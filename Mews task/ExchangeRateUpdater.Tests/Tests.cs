@@ -47,7 +47,7 @@ namespace ExchangeRateUpdater.Tests
         [SetUp]
         public void Setup()
         {
-            var testXmlPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "daily_rate.xml");
+            var testXmlPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "daily_rates.xml");
             _source = new CnbSourceXmlFile();
             _source.Load(testXmlPath);
         }

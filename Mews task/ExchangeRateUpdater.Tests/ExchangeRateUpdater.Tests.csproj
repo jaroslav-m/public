@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="daily_rate.xml" />
+    <None Remove="daily_rates.xml" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="daily_rate.xml">
+    <EmbeddedResource Include="daily_rates.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
