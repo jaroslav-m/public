@@ -1,22 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Xml.Serialization;
 
 namespace ExchangeRateUpdater.Tests
 {
-    class CnbSourceXmlFile : ICnbSource
+    class CnbSourceXmlFile : CnbSource
     {
         public ExchangeRatesCnbXmlWrapper Data { get; private set; }
 
-        private readonly XmlSerializer _serializer = new XmlSerializer(typeof(ExchangeRatesCnbXmlWrapper), defaultNamespace: "");
-
         public void Load(string xmlFilePath)
         {
-            using var stream = new StreamReader(xmlFilePath);
-            Data = (ExchangeRatesCnbXmlWrapper)_serializer.Deserialize(stream);
+            using var stream = new FileStream(xmlFilePath, FileMode.Open);
+            Data = Deserialize(stream);
         }
 
-        public IEnumerable<ExchangeRateCnb> GetExchangeRates()
+        public override IEnumerable<ExchangeRateCnb> GetExchangeRates()
         {           
             return Data.Table.ExchangeRates;
         }

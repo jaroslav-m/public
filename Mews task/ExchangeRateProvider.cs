@@ -6,14 +6,14 @@ namespace ExchangeRateUpdater
 {
     public class ExchangeRateProvider
     {
-        private readonly ICnbSource _source;
+        private readonly CnbSource _source;
 
         public ExchangeRateProvider()
         {
             _source = new CnbSourceApi();
         }
 
-        public ExchangeRateProvider(ICnbSource source)
+        public ExchangeRateProvider(CnbSource source)
         {
             _source = source;
         }
